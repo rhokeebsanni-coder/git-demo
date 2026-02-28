@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Git Cheat Sheet – Rhokeeb</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; padding: 40px 20px; }
+    h1 { text-align: center; font-size: 2rem; color: #58a6ff; margin-bottom: 6px; }
+    .subtitle { text-align: center; color: #8b949e; margin-bottom: 40px; font-size: 0.95rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; }
+    .card h2 { font-size: 1rem; font-weight: 700; color: #f0883e; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .card h2 span { font-size: 1.2rem; }
+    .cmd { background: #0d1117; border: 1px solid #21262d; border-radius: 8px; padding: 10px 14px; margin-bottom: 10px; }
+    .cmd code { color: #79c0ff; font-family: 'Consolas', monospace; font-size: 0.88rem; display: block; margin-bottom: 4px; }
+    .cmd p { color: #8b949e; font-size: 0.82rem; }
+    .tag { display: inline-block; background: #388bfd26; color: #58a6ff; border-radius: 4px; font-size: 0.7rem; padding: 1px 6px; margin-bottom: 6px; }
+    .workflow { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; max-width: 1100px; margin: 20px auto 0; }
+    .workflow h2 { color: #3fb950; margin-bottom: 16px; font-size: 1rem; }
+    .steps { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .step { background: #0d1117; border: 1px solid #21262d; border-radius: 8px; padding: 10px 16px; text-align: center; }
+    .step code { color: #79c0ff; font-family: monospace; font-size: 0.85rem; display: block; }
+    .step p { color: #8b949e; font-size: 0.75rem; margin-top: 3px; }
+    .arrow { color: #58a6ff; font-size: 1.2rem; }
+    footer { text-align: center; color: #484f58; font-size: 0.8rem; margin-top: 40px; }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Git Cheat Sheet</h1>
+  <p class="subtitle">Everything you learned today — all in one place</p>
+
+  <div class="grid">
+
+    <div class="card">
+      <h2><span>🏁</span> Getting Started</h2>
+      <div class="cmd"><code>git init</code><p>Start tracking a folder with Git</p></div>
+      <div class="cmd"><code>git clone &lt;url&gt;</code><p>Copy a repo from GitHub to your computer</p></div>
+      <div class="cmd"><code>git status</code><p>See what's changed in your project</p></div>
+      <div class="cmd"><code>git log --oneline</code><p>See all your commits in a short list</p></div>
+    </div>
+
+    <div class="card">
+      <h2><span>📦</span> Saving Changes</h2>
+      <div class="cmd"><code>git add .</code><p>Stage ALL changed files (put them in the box)</p></div>
+      <div class="cmd"><code>git add &lt;filename&gt;</code><p>Stage one specific file</p></div>
+      <div class="cmd"><code>git commit -m "your message"</code><p>Save a snapshot with a description</p></div>
+    </div>
+
+    <div class="card">
+      <h2><span>☁️</span> GitHub (Remote)</h2>
+      <div class="cmd"><code>git remote add origin &lt;url&gt;</code><p>Connect your local project to GitHub</p></div>
+      <div class="cmd"><code>git push -u origin main</code><p>First ever push — links local to GitHub</p></div>
+      <div class="cmd"><code>git push</code><p>Upload your commits to GitHub (after first push)</p></div>
+      <div class="cmd"><code>git pull</code><p>Download latest changes from GitHub</p></div>
+    </div>
+
+    <div class="card">
+      <h2><span>🌿</span> Branching</h2>
+      <div class="cmd"><code>git checkout -b &lt;branch-name&gt;</code><p>Create a new branch and switch to it</p></div>
+      <div class="cmd"><code>git switch &lt;branch-name&gt;</code><p>Switch to an existing branch</p></div>
+      <div class="cmd"><code>git branch</code><p>See all branches (* = current)</p></div>
+      <div class="cmd"><code>git merge &lt;branch-name&gt;</code><p>Merge a branch into your current branch</p></div>
+      <div class="cmd"><code>git branch -d &lt;branch-name&gt;</code><p>Delete a branch (safe — only if merged)</p></div>
+      <div class="cmd"><code>git push origin --delete &lt;branch-name&gt;</code><p>Delete a branch on GitHub</p></div>
+    </div>
+
+    <div class="card">
+      <h2><span>↩️</span> Undoing Things</h2>
+      <div class="cmd"><code>git reset HEAD~1</code><p>Undo last commit but KEEP your changes</p></div>
+      <div class="cmd"><code>git reset HEAD~2</code><p>Undo last 2 commits but keep changes</p></div>
+      <div class="cmd"><code>git restore &lt;filename&gt;</code><p>Discard changes to a file (go back to last commit)</p></div>
+    </div>
+
+    <div class="card">
+      <h2><span>🍴</span> Forking</h2>
+      <div class="cmd"><code>— Fork on GitHub first —</code><p>Click Fork button on someone's repo page</p></div>
+      <div class="cmd"><code>git clone &lt;your-fork-url&gt;</code><p>Clone YOUR fork to your computer</p></div>
+      <div class="cmd"><code>git push</code><p>Push changes to YOUR fork</p></div>
+      <div class="cmd"><code>— Open Pull Request on GitHub —</code><p>Ask the original owner to accept your changes</p></div>
+    </div>
+
+    <div class="card">
+      <h2><span>🧠</span> Key Terms</h2>
+      <div class="cmd"><code>main</code><p>Your local branch — the stable version of your code</p></div>
+      <div class="cmd"><code>origin</code><p>Nickname for GitHub (the remote)</p></div>
+      <div class="cmd"><code>HEAD</code><p>Where you are right now (like a "you are here" pin 📍)</p></div>
+      <div class="cmd"><code>-u flag</code><p>Links local branch to GitHub — only needed on first push</p></div>
+    </div>
+
+    <div class="card">
+      <h2><span>💡</span> Good Habits</h2>
+      <div class="cmd"><code>Never commit directly to main</code><p>Always create a branch for new features/fixes</p></div>
+      <div class="cmd"><code>Write clear commit messages</code><p>"added login feature" not "changes" 😄</p></div>
+      <div class="cmd"><code>Check git status often</code><p>Know what's staged before you commit</p></div>
+      <div class="cmd"><code>Delete merged branches</code><p>Keep your repo clean 🧹</p></div>
+    </div>
+
+  </div>
+
+  <div class="workflow">
+    <h2>✅ Everyday Workflow</h2>
+    <div class="steps">
+      <div class="step"><code>git switch -c feature</code><p>Create branch</p></div>
+      <span class="arrow">→</span>
+      <div class="step"><code>make your changes</code><p>Write code</p></div>
+      <span class="arrow">→</span>
+      <div class="step"><code>git add .</code><p>Stage</p></div>
+      <span class="arrow">→</span>
+      <div class="step"><code>git commit -m "..."</code><p>Save snapshot</p></div>
+      <span class="arrow">→</span>
+      <div class="step"><code>git push</code><p>Upload to GitHub</p></div>
+      <span class="arrow">→</span>
+      <div class="step"><code>merge / PR</code><p>Into main</p></div>
+    </div>
+  </div>
+
+  <footer>Made for Rhokeeb 🚀 — You've got this!</footer>
+
+</body>
+</html>
